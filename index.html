@@ -534,24 +534,27 @@
                             </div>
                         </div>
                         <div class="right-contact">
-                            <form action="" class="contact-form">
+                            <form class="contact-form" id="myForm">
                                 <div class="input-control i-c-2">
                                     <input
                                         type="text"
+                                        name="name"
                                         required
                                         placeholder="YOUR NAME"
                                     />
                                     <input
                                         type="email"
+                                        name="email"
                                         required
                                         placeholder="YOUR EMAIL"
                                     />
                                 </div>
                                 <div class="input-control">
                                     <input
-                                        type="text"
+                                        type="tel"
+                                        name="phone"
                                         required
-                                        placeholder="ENTER SUBJECT"
+                                        placeholder="YOUR NUMBER"
                                     />
                                 </div>
                                 <div class="input-control">
@@ -576,6 +579,7 @@
                                     ></span>
                                 </button> -->
                                 <button
+                                    id="sub"
                                     class="submit-btn main-btn"
                                     style="background-color: #191d2b"
                                 >
@@ -589,6 +593,38 @@
                                     ></span>
                                 </button>
                             </form>
+                            <!-- <p id="msg">Success.</p> -->
+                            <script>
+                                let form = document.querySelector("form");
+                                form.addEventListener("submit", (e) => {
+                                    e.preventDefault();
+                                    document.querySelector("#sub").value =
+                                        "Submitting...";
+                                    let data = new FormData(form);
+                                    fetch(
+                                        "https://script.google.com/macros/s/AKfycbwVgBmyQojzLa4orGtxvp2H5bqEu7sjxu7kf9a6T3yLRcwEXolTgYZuVNMzduydZAwtNQ/exec",
+                                        {
+                                            method: "POST",
+                                            body: data,
+                                        }
+                                    )
+                                        .then((res) => res.text())
+                                        .then((data) => {
+                                            alert("Submitted.");
+                                            var formx =
+                                                document.getElementById(
+                                                    "myForm"
+                                                );
+                                            formx.reset();
+                                            // document.querySelector(
+                                            //     "#msg"
+                                            // ).innerHTML = data;
+                                            // document.querySelector(
+                                            //     "#sub"
+                                            // ).value = "Submit";
+                                        });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
