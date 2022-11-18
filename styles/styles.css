@@ -311,6 +311,12 @@ section {
 .about-stats .progress-bars .progress-bar .progress-con .progress .html {
     width: 85%;
 }
+.about-stats .progress-bars .progress-bar .progress-con .progress .linux {
+    width: 95%;
+}
+.about-stats .progress-bars .progress-bar .progress-con .progress .tmux {
+    width: 90%;
+}
 .about-stats .progress-bars .progress-bar .progress-con .progress .css {
     width: 80%;
 }
